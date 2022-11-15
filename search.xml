@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>快排模板</title>
+      <link href="/posts/6216598/"/>
+      <url>/posts/6216598/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>给定你一个长度为 n 的整数数列。</p><p>请你使用快速排序对这个数列按照从小到大进行排序。</p><p>并将排好序的数列按顺序输出。</p><p>输入格式<br>输入共两行，第一行包含整数 n。</p><p>第二行包含 n 个整数（所有整数均在 1∼109 范围内），表示整个数列。</p><p>输出格式<br>输出共一行，包含 n 个整数，表示排好序的数列。</p><p>数据范围</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1≤n≤100000</span><br></pre></td></tr></table></figure><p>输入样例：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3 1 2 4 5</span><br></pre></td></tr></table></figure><p>输出样例：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6+10;</span><br><span class="line">int n,q[N];</span><br><span class="line"></span><br><span class="line">void quick_sort(int q[],int l,int r)</span><br><span class="line">&#123;</span><br><span class="line">    if(l&gt;=r) return;</span><br><span class="line">    int x=q[(l+r)/2],i=l-1,j=r+1;</span><br><span class="line">    while(i&lt;j)</span><br><span class="line">    &#123;</span><br><span class="line">        do i++;while(q[i]&lt;x);</span><br><span class="line">        do j--;while(q[j]&gt;x);</span><br><span class="line">        if(i&lt;j) swap(q[i],q[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(q,l,j);</span><br><span class="line">    quick_sort(q,j+1,r);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(int i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;q[i]);</span><br><span class="line"></span><br><span class="line">    quick_sort(q,0,n-1);</span><br><span class="line"></span><br><span class="line">    for(int i=0;i&lt;n;i++) printf(&quot;%d &quot;,q[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>分治思想<br>先选择一个标准值 x ，将q[] 中 <code>&gt;x</code> 的值放在x左边,将q[]中 <code>&lt;x</code> 的值放在x右边,递归x前后两部分,完成排序</p><h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将q[] 中 &gt;x 的值放在x左边,将q[]中 &lt;x 的值放在x右边</span><br></pre></td></tr></table></figure><p>① 可以另外开两个数组分别存储<code>&gt;x</code> 和 <code>&lt;x</code> 的部分,然后合并至q[]数组<br>② 用两个指针i,j分别从数组左右两别往中间走,直至<code>i&gt;x</code> 和<code>j&lt;x</code>交换q[i] q[j]两值,当i和j相遇时停止</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法合集 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 排序 快排 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ssh</title>
       <link href="/posts/ee8dcc44/"/>
       <url>/posts/ee8dcc44/</url>
